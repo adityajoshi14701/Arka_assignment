@@ -12,7 +12,11 @@ app.use(express.static("public"));
 
 // connect to the mongodb database
 connectDB()
-
+app.get('/', (req, res) => {
+    return res.json({
+        msg: 'Hi Everyone! ✨'
+    })
+})
 app.use('/api/item', require("./routes/item"))
 app.use('/api/payment', cors(), require("./routes/payment"))
 
